@@ -8,6 +8,10 @@ class ExcData : public DataObject
   public:
     ExcData& operator=(ExcData other)
     {
+      if(this == &other)
+      {
+        return *this;
+      }
       exc = other.getExc();
       darks = other.getDarks();
       valid = other.getValid();

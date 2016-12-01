@@ -1,5 +1,5 @@
 #ifndef SENSOR_DATA_H
-#define SENSOR_DATD_H
+#define SENSOR_DATA_H
 
 #include "DataObject.h"
 
@@ -9,6 +9,10 @@ class SensorData : public DataObject
   public:
     SensorData& operator=(SensorData other)
     {
+      if(this == &other)
+      {
+        return *this;
+      }
       if(sensorCount==other.getSensorCount())
       {
         for(int i= 0; i<sensorCount; i++)

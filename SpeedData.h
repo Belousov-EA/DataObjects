@@ -8,6 +8,10 @@ class SpeedData : DataObject
   public:
     SpeedData& operator=(SpeedData other)
     {
+      if(this == &other)
+      {
+        return *this;
+      }
       avgSpeed = other.getAvgSpeed();
       difference = other.getDifference();
       return *this;  
