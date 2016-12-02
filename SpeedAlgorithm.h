@@ -11,6 +11,14 @@ class SpeedAlgorithm : public Algorithm
   public:
     void init(float P, float D, float MidSpeed, unsigned long VozvratTime)
     {
+      p = P;
+      d = D;
+      midSpeed = MidSpeed;
+      vozvratTime = VozvratTime;
+    }
+    
+    void call()
+    {
       if(excData->getDarks()!=0)
       {
         speedData.setDifference ( excData -> getExc()*p+(excData -> getExc()-lastExc)*d/(excData->getExcTime() - lastTime));
@@ -45,9 +53,9 @@ class SpeedAlgorithm : public Algorithm
       this -> excData = data;
     }
     
-    SpeedData &getDataPtr()
+    SpeedData *getDataPtr()
     {
-      return speedData;
+      return &speedData;
     }  
   private:
     float p;

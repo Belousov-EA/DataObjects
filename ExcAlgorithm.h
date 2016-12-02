@@ -45,7 +45,7 @@ class ExcAlgorithm : public Algorithm
       {
         sum = sum/(dark*sensorCount/2);
         excData.setLastTime(millis());
-        excData.valid(sum);
+        excData.setValid(sum);
       }else
       {
         sum = 0;
@@ -74,9 +74,9 @@ class ExcAlgorithm : public Algorithm
       this -> sensorDataPtr = data;
     }
     
-    ExcData &getDataPtr()
+    ExcData *getDataPtr()
     {
-      return excData;
+      return &excData;
     }
   private:
     SensorData<int, sensorCount> *sensorDataPtr;

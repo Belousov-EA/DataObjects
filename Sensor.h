@@ -19,14 +19,14 @@ class Sensor
     {
       for(int i = 0; i<sensorCount; i++)
       {
-        data.setValue(i) = analogRead(sensors[i]);
+        data.setValue(analogRead(sensors[i]), i);
       }
     }
 
 
-    SensorData<int, 8> &getDataPtr()
+    SensorData<int, 8> *getDataPtr()
     {
-      return data;
+      return &data;
     }
     
     void init(int Sensors[])
